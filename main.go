@@ -178,6 +178,7 @@ func hashFile(f string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer fi.Close()
 
 	_, err = io.Copy(h, fi)
 	if err != nil {
